@@ -10,6 +10,10 @@ from sklearn.preprocessing import StandardScaler, MinMaxScaler #Pour le prétrai
 pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 200)
 
+# Style graphique
+plt.rcParams['figure.figsize'] = (12, 6)
+plt.style.use('seaborn-v0_8')
+
 #Charger les données
 df=pd.read_csv('Mall_Customers.csv')
 
@@ -20,21 +24,21 @@ print(df.describe(include=['object'])) #Statistiques pour les colonnes non numé
 
 # Compter les valeurs manquantes par colonne
 missing = df.isna().sum()
-print("Missing Values per Column:\n", missing)
+print("VALEURS MANQUANTES PAR COLONNE:\n", missing)
 
 #Colonnes numériques usuelles : Age, Annual Income (k$), Spending Score (1-100)
 num_cols = ['Age', 'Annual Income (k$)', 'Spending Score (1-100)']
 
 #Histogrammes
 df[num_cols].hist(bins=15, figsize=(12,4))
-plt.suptitle('Histograms')
+plt.suptitle('Histogrammes des variables numériques')
 plt.tight_layout()
 plt.show()
 
 #Boxplots pour repérer les outliers
 plt.figure(figsize=(10,4))
 sns.boxplot(data=df[num_cols])
-plt.title('Boxplots - numeric variables')
+plt.title('Boxplots des variables numériques')
 plt.tight_layout()
 plt.show()
 
@@ -61,12 +65,12 @@ X_scaled = scaler.fit_transform(X)
 X_scaled = pd.DataFrame(X_scaled, columns=features)
 
 #Assurer que les variables sont bien transformées
-print("\nScaled features preview:")
+print("\nSTATISTIQUES APRÈS NORMALISATION:")
 print(X_scaled.describe().T)
 
 #Histogrammes
 X_scaled.hist(bins=12, figsize=(10,3))
-plt.suptitle('Scaled features')
+plt.suptitle('Histogrammes après normalisation')
 plt.tight_layout()
 plt.show()
 
@@ -77,4 +81,4 @@ preprocessed[features] = X_scaled[features]   # remplace les colonnes par leurs 
 os.makedirs('results', exist_ok=True) # Créer le dossier 'results' s'il n'existe pas
 #Sauvegarder
 preprocessed.to_csv('results/mall_customers_preprocessed.csv', index=False)
-print("Preprocessed data saved to results/mall_customers_preprocessed.csv")
+print("DATA PRETRAITÉE SAUVEGARDÉE/mall_customers_preprocessed.csv")

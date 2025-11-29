@@ -21,7 +21,7 @@ plt.rcParams['figure.figsize'] = (12, 6)
 plt.style.use('seaborn-v0_8')
 
 # Charger les données
-df = pd.read_csv('Mall_Customers.csv')
+df = pd.read_csv('../data/Mall_Customers.csv')
 
 print(df.head())          # Afficher premières lignes
 print(df.info())          # info(types, non-null counts)
@@ -84,7 +84,7 @@ plt.show()
 preprocessed = df.copy()
 preprocessed[features] = X_scaled[features]   # remplace les colonnes par leurs versions scalées
 
-os.makedirs('results', exist_ok=True) # Créer le dossier 'results' s'il n'existe pas
+os.makedirs('../results', exist_ok=True) # Créer le dossier 'results' s'il n'existe pas
 #Sauvegarder
 preprocessed.to_csv('results/mall_customers_preprocessed.csv', index=False)
 print("DATA PRETRAITÉE SAUVEGARDÉE : results/mall_customers_preprocessed.csv")

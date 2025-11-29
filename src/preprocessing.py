@@ -86,5 +86,5 @@ preprocessed[features] = X_scaled[features]   # remplace les colonnes par leurs 
 
 os.makedirs('../results', exist_ok=True) # Créer le dossier 'results' s'il n'existe pas
 #Sauvegarder
-preprocessed.to_csv('results/mall_customers_preprocessed.csv', index=False)
-print("DATA PRETRAITÉE SAUVEGARDÉE : results/mall_customers_preprocessed.csv")
+preprocessed.to_csv('../results/mall_customers_preprocessed.csv', index=False)
+print("DATA PRETRAITÉE SAUVEGARDÉE : ../results/mall_customers_preprocessed.csv")

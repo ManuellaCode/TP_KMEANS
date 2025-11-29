@@ -10,7 +10,7 @@ plt.style.use('seaborn-v0_8')
 sns.set_palette("husl")
 
 #Chargement et préparation des données
-df = pd.read_csv('Mall_Customers.csv')
+df = pd.read_csv('../data/Mall_Customers.csv')
 X = df[['Age', 'Annual Income (k$)', 'Spending Score (1-100)']]
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)

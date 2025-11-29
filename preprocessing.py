@@ -5,6 +5,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler, MinMaxScaler #Pour le prétraitement
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.decomposition import PCA
+from sklearn.mixture import GaussianMixture
+from sklearn.cluster import DBSCAN
+import warnings
 
 #Réglage optionnel d'affichage
 pd.set_option('display.max_columns', None)
